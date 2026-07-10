@@ -1,0 +1,8 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.snae3ya_app",  // ⭐ غيّرها لاسم حزمة تطبيقك
+    "sha256_cert_fingerprints": ["A8:2D:CC:D0:F6:0D:B7:96:2E:42:E9:0B:6C:06:A2:BC:B6:6C:AA:31:7C:28:11:74:41:E9:86:50:90:40:97:D4"]
+  }
+}]
