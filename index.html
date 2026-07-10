@@ -9,10 +9,9 @@
   <h1>sanay3ya.app</h1>
   <p>جاري فتح التطبيق...</p>
   <script>
-    // احصل على المسار الكامل من الرابط (مثلاً /r/SNY34852)
-    var path = window.location.pathname + window.location.search;
-    // افتح التطبيق مباشرة باستخدام الـ custom scheme
-    window.location.href = 'snae3ya://' + path;
-  </script>
+  var fullUrl = window.location.href;
+  var path = fullUrl.replace('https://gymy2022.github.io/sanay3ya.app', '');
+  window.location.href = 'snae3ya://' + path;
+</script>
 </body>
 </html>
