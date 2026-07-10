@@ -5,32 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>sanay3ya.app</title>
   <script>
-    // استقبال المسار من 404.html
-    (function() {
-      const params = new URLSearchParams(window.location.search);
-      const redirectPath = params.get('p');
+    // دالة لفتح التطبيق عبر الـ deep link
+    function openApp() {
+      // الحصول على المسار المحفوظ من 404.html
+      var params = new URLSearchParams(window.location.search);
+      var redirectPath = params.get('p');
       
-      // إذا كان هناك مسار محفوظ، افتح التطبيق مباشرة
-      if (redirectPath && redirectPath.startsWith('/')) {
-        // ⭐ إزالة الـ / الزائدة
-        const cleanPath = redirectPath.startsWith('/') ? redirectPath.substring(1) : redirectPath;
+      // إذا كان هناك مسار محفوظ، استخدمه
+      if (redirectPath) {
+        // إزالة أي / زائدة في البداية
+        var cleanPath = redirectPath.replace(/^\/+/, '');
+        // فتح التطبيق بالمسار الصحيح
         window.location.href = 'snae3ya://' + cleanPath;
         return;
       }
       
       // إذا لم يكن هناك مسار، افتح الصفحة الرئيسية للتطبيق
       window.location.href = 'snae3ya://';
-    })();
+    }
+    
+    // محاولة فتح التطبيق فوراً
+    openApp();
   </script>
 </head>
 <body>
   <h1>sanay3ya.app</h1>
   <p>جاري فتح التطبيق...</p>
+  <p>إذا لم يفتح التطبيق، <a href="javascript:openApp()">اضغط هنا</a></p>
   <script>
-    // إذا لم يفتح التطبيق خلال 2 ثانية، انتقل إلى متجر التطبيقات
+    // إذا لم يفتح التطبيق خلال 3 ثواني، انتقل إلى متجر التطبيقات
     setTimeout(function() {
       window.location.href = 'https://play.google.com/store/apps/details?id=com.sani3ia.app';
-    }, 2000);
+    }, 3000);
   </script>
 </body>
 </html>
