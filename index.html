@@ -9,8 +9,11 @@
   <h1>sanay3ya.app</h1>
   <p>جاري فتح التطبيق...</p>
   <script>
-    // هذا هو الحل الأبسط: أعد توجيه المتصفح مباشرة إلى الـ deep link
-    window.location.href = 'snae3ya://r/SNY34852';
+    // استخراج المسار من الرابط الحالي
+    var path = window.location.pathname; // مثلاً /r/SNY34852
+    var code = path.split('/').pop();    // استخراج آخر جزء (SNY34852)
+    // فتح التطبيق بالكود
+    window.location.href = 'snae3ya://r/' + code;
   </script>
 </body>
 </html>
