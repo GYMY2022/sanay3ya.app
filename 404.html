@@ -4,15 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>sanay3ya.app</title>
-  <script>
-    // الحصول على المسار الأصلي (مثلاً /r/SNY34852)
-    var path = window.location.pathname + window.location.search;
-    // إعادة التوجيه إلى index.html مع حفظ المسار
-    window.location.href = '/sanay3ya.app/?p=' + encodeURIComponent(path);
-  </script>
 </head>
 <body>
   <h1>sanay3ya.app</h1>
   <p>جاري إعادة التوجيه...</p>
+  <script>
+    // ببساطة أعد التوجيه إلى index.html مع الاحتفاظ بالمسار
+    window.location.href = '/sanay3ya.app/?p=' + encodeURIComponent(window.location.pathname + window.location.search);
+  </script>
 </body>
 </html>
