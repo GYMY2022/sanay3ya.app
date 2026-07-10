@@ -4,18 +4,9 @@
   <meta charset="utf-8">
   <title>sanay3ya.app</title>
   <script type="text/javascript">
-    // 1. خد المسار اللي المستخدم كتبه (مثلاً /r/SNY34852)
-    const path = window.location.pathname;
-    const search = window.location.search;
-
-    // 2. اتأكد إنه مسار آمن (عشان منع هجمات)
-    if (path && path.startsWith('/') && !path.startsWith('//') && !path.includes('://')) {
-      // 3. حول المستخدم للـ index.html مع حفظ المسار في Query Parameter
-      window.location.replace(window.location.origin + '/?p=' + encodeURIComponent(path + search));
-    } else {
-      // لو المسار مش آمن، روح للصفحة الرئيسية
-      window.location.replace(window.location.origin);
-    }
+    // حفظ المسار الأصلي وإعادة التوجيه إلى index.html
+    const path = window.location.pathname + window.location.search;
+    window.location.replace('/sanay3ya.app/?p=' + encodeURIComponent(path));
   </script>
 </head>
 <body>

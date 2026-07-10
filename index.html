@@ -5,14 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>sanay3ya.app</title>
   <script>
-    // استقبل المسار المحفوظ من 404.html وأعد توجيه الـ deep link
+    // استقبال المسار من 404.html
     (function() {
       const params = new URLSearchParams(window.location.search);
       const redirectPath = params.get('p');
+      
+      // إذا كان هناك مسار محفوظ، افتح التطبيق مباشرة
       if (redirectPath && redirectPath.startsWith('/')) {
-        // استخدم الـ custom scheme عشان تفتح التطبيق بالمسار الصحيح
-        window.location.href = 'snae3ya://' + redirectPath;
+        // ⭐ إزالة الـ / الزائدة
+        const cleanPath = redirectPath.startsWith('/') ? redirectPath.substring(1) : redirectPath;
+        window.location.href = 'snae3ya://' + cleanPath;
+        return;
       }
+      
+      // إذا لم يكن هناك مسار، افتح الصفحة الرئيسية للتطبيق
+      window.location.href = 'snae3ya://';
     })();
   </script>
 </head>
@@ -20,7 +27,7 @@
   <h1>sanay3ya.app</h1>
   <p>جاري فتح التطبيق...</p>
   <script>
-    // لو الـ deep link فوق مجحش، حاول تاني بعد 2 ثانية
+    // إذا لم يفتح التطبيق خلال 2 ثانية، انتقل إلى متجر التطبيقات
     setTimeout(function() {
       window.location.href = 'https://play.google.com/store/apps/details?id=com.sani3ia.app';
     }, 2000);
