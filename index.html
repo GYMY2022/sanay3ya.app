@@ -90,14 +90,16 @@
 </div>
 
 <script>
-  // محاولة فتح التطبيق تلقائياً فور تحميل الصفحة
   (function() {
-    // انتظر نصف ثانية ثم حاول فتح التطبيق
+    // استخراج الكود من الرابط الحالي
+    var path = window.location.pathname; // مثلاً /r/SNY34852
+    var code = path.split('/').pop();    // استخراج SNY34852
+
+    // محاولة فتح التطبيق بالكود المستخرج
     setTimeout(function() {
-      window.location.href = 'snae3ya://r/SNY34852';
+      window.location.href = 'snae3ya://r/' + code;
     }, 500);
 
-    // إذا لم يفتح التطبيق خلال 3 ثواني، انتقل إلى متجر التطبيقات
     setTimeout(function() {
       window.location.href = 'https://play.google.com/store/apps/details?id=com.sani3ia.app';
     }, 3500);
